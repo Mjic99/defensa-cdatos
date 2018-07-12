@@ -48,7 +48,7 @@ def bloquear_out(ip):
     
 event_loop = asyncio.get_event_loop()
 mydomain=[x for x in subprocess.getoutput("ip route|sed '/via/d' | sed '/src /!d' | sed '/dev /!d' |sed '2,$d'").split(" ") if x]
-myiface=mydomain[2]/sbin/iptables -A INPUT -m mac --mac-source 00:0F:EA:91:04:08 -j DROP
+myiface=mydomain[2]
 mydomain=mydomain[0]
 
 #First create and configure a raw socket
